@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 
-function QuestionForm(props) {
+function QuestionForm(onQuestionSubmit) {
+
+  const [questionData, setQuestionData] = useState({
+    prompt: '',
+    answers: ['', '', '', ''],
+    correctIndex: 0
+  });
+
   const [formData, setFormData] = useState({
     prompt: "",
     answer1: "",
@@ -31,7 +38,7 @@ function QuestionForm(props) {
           <input
             type="text"
             name="prompt"
-            value={formData.prompt}
+            value={questionData.prompt}
             onChange={handleChange}
           />
         </label>
